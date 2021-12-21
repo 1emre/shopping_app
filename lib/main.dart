@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getxshopapp/screens/product_detail_screen.dart';
 import 'package:getxshopapp/screens/product_overview_screen.dart';
 
 import 'bindings/product_binding.dart';
@@ -21,10 +22,15 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Lato'),
       getPages: [
         GetPage(
-            //
-            name: "/product_overview",
-            page: () => ProductsOverviewScreen(),
-            binding: ProductBinding())
+          //
+          name: "/product_overview",
+          page: () => ProductsOverviewScreen(),
+          binding: ProductBinding(),
+        ),
+        GetPage(
+          name: "/product_detail",
+          page: () => ProductDetailScreen(),
+        ),
       ],
       initialRoute: "/product_overview",
       // home: ProductsOverviewScreen(),

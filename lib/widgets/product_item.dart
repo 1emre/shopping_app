@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductItem extends StatelessWidget {
   final String id;
@@ -19,9 +20,19 @@ class ProductItem extends StatelessWidget {
       child: Stack(
         children: [
           GridTile(
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(
+                  "/product_detail",
+                  arguments: [
+                    id
+                  ], //Argumanım tek ise direkt string sekilde gonderebiliyorum.Eger argumanlarım birden fazla ise liste seklinde yollamam gerekiyor exp [id, "2"].
+                );
+              },
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
             footer: GridTileBar(
               backgroundColor: Colors.black87,

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:getxshopapp/models/product.dart';
 
 class ProductController extends GetxController {
-  final List<Product> _loadedProducts = [
+  final List<Product> _items = [
     Product(
         id: 'p1',
         title: 'Red Shirt',
@@ -26,14 +26,18 @@ class ProductController extends GetxController {
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV40q2hS2EpIbRK-gc6Sgj2xufsRFfRUjBiw&usqp=CAU'),
     Product(
         id: 'p4',
-        title: 'Breed',
+        title: 'Bread',
         description: 'A nice pair of trousers.',
         price: 3.99,
         imageUrl:
             'https://cdn.yemek.com/mnresize/1250/833/uploads/2020/03/somun-ekmek-yeni-one-cikan.jpg'),
-  ];
+  ].obs;
 
-  List<Product> get loadedProducts {
-    return [..._loadedProducts];
+  List<Product> get items {
+    return [..._items];
+  }
+
+  Product findById(String id) {
+    return _items.firstWhere((element) => element.id == id);
   }
 }
